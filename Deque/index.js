@@ -52,4 +52,20 @@ class Deque {
     this.count += 1;
     return this.count;
   }
+
+  popLeft() {
+    if (this.count === 0) return null;
+
+    const tmpNode = this.front;
+
+    if (this.count === 1) {
+      this.init();
+    } else {
+      this.front = tmpNode.next;
+      this.front.prev = null;
+      this.count -= 1;
+    }
+
+    return tmpNode.value;
+  }
 }

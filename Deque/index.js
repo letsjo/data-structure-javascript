@@ -69,5 +69,3 @@ class Deque {
     return data;
   }
 }
-
-module.exports = { Deque };

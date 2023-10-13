@@ -16,4 +16,22 @@ class Deque {
     this.front = null;
     this.back = null;
   }
+
+  appendleft(value) {
+    const node = new Node(value);
+
+    if (this.count === 0) {
+      this.front = node;
+      this.back = node;
+    } else {
+      const tmpNode = this.front;
+      tmpNode.prev = node;
+
+      this.front = node;
+      node.next = tmpNode;
+    }
+
+    this.count += 1;
+    return this.count;
+  }
 }

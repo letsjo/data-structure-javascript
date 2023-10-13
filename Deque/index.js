@@ -68,4 +68,20 @@ class Deque {
 
     return data;
   }
+
+  pop() {
+    if (this.count === 0) return null;
+
+    const data = this.back.data;
+
+    if (this.count === 1) {
+      this.init();
+    } else {
+      this.back = this.back.prev;
+      this.back.next = null;
+      this.count -= 1;
+    }
+
+    return data;
+  }
 }

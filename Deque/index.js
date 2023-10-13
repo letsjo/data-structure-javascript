@@ -46,26 +46,28 @@ class Deque {
       tmpNode.next = node;
 
       this.back = node;
-      node.prev = node;
+      node.prev = tmpNode;
     }
 
     this.count += 1;
     return this.count;
   }
 
-  popLeft() {
+  popleft() {
     if (this.count === 0) return null;
 
-    const tmpNode = this.front;
+    const data = this.front.data;
 
     if (this.count === 1) {
       this.init();
     } else {
-      this.front = tmpNode.next;
+      this.front = this.front.next;
       this.front.prev = null;
       this.count -= 1;
     }
 
-    return tmpNode.value;
+    return data;
   }
 }
+
+module.exports = { Deque };
